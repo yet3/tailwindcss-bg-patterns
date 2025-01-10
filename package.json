@@ -11,7 +11,7 @@
 	"scripts": {
 		"build": "rm -rf ./dist && rollup -c",
 		"test": "vitest",
-		"prepublishOnly": "pnpm build && pnpm test"
+		"prepublishOnly": "pnpm build && vitest run"
 	},
 	"peerDependencies": {
 		"tailwindcss": "^3.4.17"
