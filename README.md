@@ -1,4 +1,4 @@
-# tailwindcss-bg-patterns
+# tailwindcss-bg-patterns (IN-DEVELOPMENT)
 
 ![GitHub license](https://img.shields.io/github/license/yet3/tailwindcss-bg-patterns?style=flat)
 <a href='https://www.npmjs.com/package/@yet3/tailwindcss-bg-patterns'>
