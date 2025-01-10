@@ -1,0 +1,5 @@
+node_modules/
+exmaple/
+dist/
+
+.DS_Store
