@@ -7,6 +7,10 @@
 
 A plugin that adds css background patterns to [TailwindCss](https://tailwindcss.com)
 
+## Live Demo
+
+See a [live demo](https://yet3.github.io/tailwindcss-bg-patterns/)
+
 ## Table of Contents
 
 - [Installation](#installation)
