@@ -1,4 +1,4 @@
-import type { CSSRuleObject, PluginAPI } from "tailwindcss/types/config";
+import type { CSSRuleObject } from "tailwindcss/types/config";
 
 interface IOpts {
 	lineSize: number;
