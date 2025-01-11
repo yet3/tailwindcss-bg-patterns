@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Build and deploy example page
 
 on:
   # Runs on pushes targeting the default branch
@@ -36,7 +36,7 @@ jobs:
         with:
           version: 'latest'
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install && cd ./example pnpm install
       - name: Build the project
         run: pnpm run build 
       - name: Setup Pages
