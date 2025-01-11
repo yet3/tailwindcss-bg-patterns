@@ -1,12 +1,14 @@
 import plugin from "tailwindcss/plugin";
-import type { CSSRuleObject } from "tailwindcss/types/config";
 import { GRID_CELL_SIZE, LINE_WIDTHS, OFFSETS, arrToObj } from "./consts";
-import { generateCellSizes } from "./generateCellSizes";
-import { generateLineColors } from "./generateLineColors";
-import { generateLineWidths } from "./generateLineWidths";
-import { generateOffsets } from "./generateOffsets";
+import { generateCellSizes, matchCellSize } from "./lib/cellSizes";
+import {
+	generateLineColors,
+	generateLineWidths,
+	matchLineWidthsAndColors,
+} from "./lib/line";
+import { generateOffsets, matchOffsets } from "./lib/offsets";
+import { resolveOptions } from "./lib/resolveOptions";
 import { generateGridClass } from "./patterns/grid";
-import { resolveOptions } from "./resolveOptions";
 import type { IOptions } from "./types";
 
 export default plugin.withOptions<IOptions | undefined>(
@@ -23,33 +25,9 @@ export default plugin.withOptions<IOptions | undefined>(
 		]);
 
 		matchUtilities({
-			[e(`${opts.prefix}pattern-line`)]: (value) => {
-				const parsed = Number(value);
-				if (!Number.isNaN(parsed)) {
-					return {
-						"--tw-line-size": `${value} /* px */`,
-					} as unknown as CSSRuleObject;
-				}
-
-				return {
-					"--tw-line-color": value,
-				} as unknown as CSSRuleObject;
-			},
-			[e(`${opts.prefix}pattern-cell`)]: (value) => {
-				return {
-					"--tw-cell-size": `${value} /* px */`,
-				} as unknown as CSSRuleObject;
-			},
-			[e(`${opts.prefix}pattern-offset-x`)]: (value) => {
-				return {
-					"--tw-offset-x": value,
-				} as unknown as CSSRuleObject;
-			},
-			[e(`${opts.prefix}pattern-offset-y`)]: (value) => {
-				return {
-					"--tw-offset-y": value,
-				} as unknown as CSSRuleObject;
-			},
+			...matchCellSize(api, opts),
+			...matchLineWidthsAndColors(api, opts),
+			...matchOffsets(api, opts),
 		});
 	},
 	() => ({
@@ -60,4 +38,3 @@ export default plugin.withOptions<IOptions | undefined>(
 		},
 	}),
 );
-

@@ -10,6 +10,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "rm -rf ./dist && rollup -c",
+		"dev": "rm -rf ./dist && concurrently \"rollup -c -w\" \"cd ./example && pnpm dev\"",
 		"test": "vitest",
 		"prepublishOnly": "pnpm build && vitest run"
 	},
@@ -19,6 +20,7 @@
 	"devDependencies": {
 		"@rollup/plugin-terser": "^0.4.4",
 		"@rollup/plugin-typescript": "^12.1.2",
+		"concurrently": "^9.1.2",
 		"postcss": "^8.4.49",
 		"rollup": "^4.30.1",
 		"rollup-plugin-analyzer": "^4.0.0",
@@ -27,7 +29,6 @@
 		"typescript": "^5.7.3",
 		"vitest": "^2.1.8"
 	},
-
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/yet3/tailwindcss-bg-patterns.git"
@@ -36,7 +37,14 @@
 		"url": "https://github.com/yet3/tailwindcss-bg-patterns/issues"
 	},
 	"homepage": "https://github.com/yet3/tailwindcss-bg-patterns#readme",
-	"files": ["dist", "README.md"],
-	"keywords": ["background patterns", "grid pattern", "tailwindcss", "tailwind"]
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"keywords": [
+		"background patterns",
+		"grid pattern",
+		"tailwindcss",
+		"tailwind"
+	]
 }
-
