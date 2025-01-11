@@ -1,5 +1,5 @@
 import type { CSSRuleObject, PluginAPI } from "tailwindcss/types/config";
-import type { IOptions } from "./types";
+import type { IOptions } from "../types";
 
 export const generateCellSizes = (
 	api: PluginAPI,
@@ -17,3 +17,11 @@ export const generateCellSizes = (
 	}
 	return styles as CSSRuleObject;
 };
+
+export const matchCellSize = (api: PluginAPI, opts: IOptions) => ({
+	[api.e(`${opts.prefix}pattern-cell`)]: (value: string) => {
+		return {
+			"--tw-cell-size": `${value} /* px */`,
+		} as unknown as CSSRuleObject;
+	},
+});

@@ -1,5 +1,5 @@
-import { DEFAULT_OPTS } from "./consts";
-import type { IOptions, IResolvedOpts } from "./types";
+import { DEFAULT_OPTS } from "../consts";
+import type { IOptions, IResolvedOpts } from "../types";
 
 export const resolveOptions = (
 	opts: IOptions | undefined | null,
