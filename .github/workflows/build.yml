@@ -36,7 +36,7 @@ jobs:
         with:
           version: 'latest'
       - name: Install dependencies
-        run: pnpm install && cd ./example pnpm install
+        run: pnpm install && cd ./example && pnpm install
       - name: Build the project
         run: pnpm run build 
       - name: Setup Pages
