@@ -2,7 +2,7 @@ import type { CSSRuleObject } from "tailwindcss/types/config";
 
 interface IOpts {
 	lineSize: number;
-	cellSize: number;
+	spacing: number;
 	offsetX: number;
 	offsetY: number;
 
@@ -14,7 +14,7 @@ export const generateGridClass = (
 	opts: IOpts = {
 		lineColor: "#ffffff",
 		lineSize: 1,
-		cellSize: 24,
+		spacing: 24,
 		offsetX: 0,
 		offsetY: 0,
 	},
@@ -22,12 +22,12 @@ export const generateGridClass = (
 	return {
 		[`.${className}`]: {
 			"--tw-line-size": opts.lineSize.toString(),
-			"--tw-cell-size": opts.cellSize.toString(),
+			"--tw-spacing": opts.spacing.toString(),
 			"--tw-offset-x": `${opts.offsetX * -1}px`,
 			"--tw-offset-y": `${opts.offsetY * -1}px`,
 			"--tw-line-color": opts.lineColor,
 
-			"--tw-unit": "calc(var(--tw-line-size) + var(--tw-cell-size))",
+			"--tw-unit": "calc(var(--tw-line-size) + var(--tw-spacing))",
 			"--tw-line-stop":
 				"calc((var(--tw-line-size) / var(--tw-unit) * 100%) / 2)",
 			"--tw-line-start-stop": "calc(50% - var(--tw-line-stop))",

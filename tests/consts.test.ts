@@ -1,7 +1,6 @@
 import { describe, expect, test } from "vitest";
 import {
 	DEFAULT_OPTS,
-	GRID_CELL_SIZE,
 	LINE_WIDTHS,
 	OFFSETS,
 	SPACING,
@@ -17,10 +16,6 @@ describe("default production values", () => {
 		expect(LINE_WIDTHS).toEqual([
 			0.5, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16,
 		]);
-	});
-
-	test("grid cell sizes", () => {
-		expect(GRID_CELL_SIZE).toEqual([...Array(128)].map((_, i) => i + 1));
 	});
 
 	test("offsets", () => {

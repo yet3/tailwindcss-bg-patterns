@@ -38,15 +38,8 @@
 	const PATTERNS: IPattern[] = [
 		{
 			name: 'Grid',
-			configClasses: [
-				...LINE_CONFIGS,
-				{ name: 'bg-pattern-cell-48', description: 'Configure size of grid pattern cells' },
-				{
-					name: 'bg-pattern-cell-[225]',
-					description: 'Configure size of grid pattern cells (custom value)'
-				}
-			],
-			class: 'bg-blue-500 bg-pattern-grid bg-pattern-line-0.5 bg-pattern-cell-32'
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
+			class: 'bg-blue-500 bg-pattern-grid bg-pattern-line-0.5 bg-pattern-spacing-32'
 		},
 		{
 			name: 'Hatching',
