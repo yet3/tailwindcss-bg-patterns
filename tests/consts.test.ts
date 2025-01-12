@@ -4,6 +4,7 @@ import {
 	GRID_CELL_SIZE,
 	LINE_WIDTHS,
 	OFFSETS,
+	SPACING,
 } from "../src/consts";
 
 describe("default production values", () => {
@@ -24,5 +25,9 @@ describe("default production values", () => {
 
 	test("offsets", () => {
 		expect(OFFSETS).toEqual([...Array(128 + 16)].map((_, i) => i + 1));
+	});
+
+	test("spacing", () => {
+		expect(SPACING).toEqual([...Array(128)].map((_, i) => i + 1));
 	});
 });

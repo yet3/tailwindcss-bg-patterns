@@ -1,10 +1,14 @@
 <script lang="ts">
 	import HtmlCode from './HtmlCode.svelte';
 
+	export interface IPatternConfig {
+		name: string;
+		description: string;
+	}
 	export interface IPattern {
 		name: string;
 		class: string;
-		configClasses: { name: string; description: string }[];
+		configClasses: IPatternConfig[];
 	}
 
 	interface IProps {
@@ -20,10 +24,10 @@
 		<h2 class="mb-4 text-3xl font-medium">{name}</h2>
 
 		<h3 class="font-medium text-white/90 ~2xs/xs:~text-base/lg">Configuration classes:</h3>
-		<ul class="ml-2 mb-4 ~2xs/xs:~text-sm/base grid content-start">
+		<ul class="ml-2 mb-4 ~2xs/xs:~text-sm/base grid content-start gap-1">
 			{#each configClasses as config}
 				<li class="flex max-xl:flex-col">
-					<span>-<code class="ml-1 font-medium text-class">{config.name}</code></span>
+					<code class="ml-1 font-medium text-class">.{config.name}</code>
 					<p class="ml-3 text-white/75">{config.description}</p>
 				</li>
 			{/each}
