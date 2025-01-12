@@ -1,5 +1,5 @@
 import { describe, test } from "vitest";
-import { DEFAULT_OPTS, LINE_WIDTHS, OFFSETS } from "../src/consts";
+import { DEFAULT_OPTS, LINE_WIDTHS, OFFSETS, SPACING } from "../src/consts";
 import { css, expectCssToBe, generateTwCss } from "./utils";
 
 describe("line widths", () => {
@@ -19,6 +19,31 @@ describe("line widths", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-line-[321]`),
 			css`.${DEFAULT_OPTS.prefix}pattern-line-[321] {
           --tw-line-size: 321 /* px */
+        }`,
+		);
+	});
+});
+
+describe("spacing", () => {
+	test(`spacing ${SPACING[0]}-${SPACING[SPACING.length - 1]}`, async () => {
+		const expected: string[] = [];
+		const classes: string[] = [];
+		for (const value of SPACING) {
+			classes.push(`${DEFAULT_OPTS.prefix}pattern-spacing-${value}`);
+			expected.push(
+				css`.${DEFAULT_OPTS.prefix}pattern-spacing-${value} {
+            --tw-spacing: ${value} /* px */
+        }`,
+			);
+		}
+		expectCssToBe(await generateTwCss(classes.join(" ")), expected.join(""));
+	});
+
+	test("custom spacing", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-spacing-[321]`),
+			css`.${DEFAULT_OPTS.prefix}pattern-spacing-[321] {
+          --tw-spacing: 321 /* px */
         }`,
 		);
 	});
