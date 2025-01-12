@@ -60,20 +60,27 @@ export default {
 ## Usage
 
 ```
+bg-pattern-grid
+
+bg-pattern-hatching
+bg-pattern-hatching-left-to-right
+bg-pattern-hatching-right-to-left
+
+bg-pattern-cross-hatching
+
 bg-pattern-line-2 // line width
 bg-pattern-line-[8] // custom line width
 bg-pattern-line-red-500 // line color
 bg-pattern-line-[#a2a2a2] // custom line color
 
-bg-pattern-grid
-bg-pattern-cell-24 // for grid pattern, cell size
-bg-pattern-cell-[321] // for grid pattern, custom cell size
+bg-pattern-spacing-24 // space between pattern lines
+bg-pattern-spacing-[321] // custom space between pattern lines
 ```
 
 <img src="./public/grid.png" alt="Grid pattern" height="200" />
 
 ```html
 <div
-  class="bg-blue-500 bg-pattern-grid bg-pattern-line-2 bg-pattern-line-white bg-pattern-cell-32"
+  class="bg-blue-500 bg-pattern-grid bg-pattern-line-2 bg-pattern-line-white bg-pattern-spacing-32"
 />
 ```
