@@ -1,6 +1,4 @@
-<script lang="ts">
-	import HtmlCode from './HtmlCode.svelte';
-
+<script lang="ts" module>
 	export interface IPatternConfig {
 		name: string;
 		description?: string;
@@ -13,6 +11,10 @@
 		class: string;
 		configClasses: IPatternConfig[];
 	}
+</script>
+
+<script lang="ts">
+	import HtmlCode from './HtmlCode.svelte';
 
 	interface IProps {
 		data: IPattern;
