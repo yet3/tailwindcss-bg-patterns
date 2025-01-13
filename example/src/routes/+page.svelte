@@ -73,14 +73,14 @@
 			name: 'Polka dot',
 			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS],
 			class:
-				'bg-blue-500 bg-pattern-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-16'
+				'bg-blue-500 bg-pattern-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-32'
 		},
 		{
 			id: 'hexagonal-polka-dot',
 			name: 'Hexagonal polka dot',
 			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS],
 			class:
-				'bg-blue-500 bg-pattern-hex-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-16'
+				'bg-blue-500 bg-pattern-hex-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-32'
 		}
 	];
 </script>
