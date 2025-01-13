@@ -1,5 +1,11 @@
 import { describe, test } from "vitest";
-import { DEFAULT_OPTS, LINE_WIDTHS, OFFSETS, SPACING } from "../src/consts";
+import {
+	DEFAULT_OPTS,
+	DOT_SIZES,
+	LINE_WIDTHS,
+	OFFSETS,
+	SPACING,
+} from "../src/consts";
 import { css, expectCssToBe, generateTwCss } from "./utils";
 
 describe("line widths", () => {
@@ -19,6 +25,31 @@ describe("line widths", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-line-[321]`),
 			css`.${DEFAULT_OPTS.prefix}pattern-line-[321] {
           --tw-line-size: 321 /* px */
+        }`,
+		);
+	});
+});
+
+describe("dot sizes", () => {
+	test(`dot sizes ${DOT_SIZES[0]}-${DOT_SIZES[DOT_SIZES.length - 1]}`, async () => {
+		const expected: string[] = [];
+		const classes: string[] = [];
+		for (const value of DOT_SIZES) {
+			classes.push(`${DEFAULT_OPTS.prefix}pattern-dot-${value}`);
+			expected.push(
+				css`.${DEFAULT_OPTS.prefix}pattern-dot-${value} {
+            --tw-dot-size: ${value} /* px */
+        }`,
+			);
+		}
+		expectCssToBe(await generateTwCss(classes.join(" ")), expected.join(""));
+	});
+
+	test("custom dot size", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-dot-[321]`),
+			css`.${DEFAULT_OPTS.prefix}pattern-dot-[321] {
+          --tw-dot-size: 321 /* px */
         }`,
 		);
 	});
@@ -109,6 +140,36 @@ describe("line colors", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-line-white`),
 			css`.${DEFAULT_OPTS.prefix}pattern-line-white {
         --tw-line-color: #fff
+    }`,
+		);
+	});
+});
+
+
+describe("dot colors", () => {
+	test("custom color", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-dot-[#f8f8f8]`),
+			css`.${DEFAULT_OPTS.prefix}pattern-dot-[#f8f8f8] {
+        --tw-dot-color: #f8f8f8
+    }`,
+		);
+	});
+
+	test("color with variant", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-dot-red-300`),
+			css`.${DEFAULT_OPTS.prefix}pattern-dot-red-300 {
+        --tw-dot-color: #fca5a5
+    }`,
+		);
+	});
+
+	test("color without variant", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-dot-white`),
+			css`.${DEFAULT_OPTS.prefix}pattern-dot-white {
+        --tw-dot-color: #fff
     }`,
 		);
 	});
