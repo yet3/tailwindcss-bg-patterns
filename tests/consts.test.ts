@@ -24,10 +24,10 @@ describe("default production values", () => {
 	});
 
 	test("offsets", () => {
-		expect(OFFSETS).toEqual([...Array(128 + 16)].map((_, i) => i + 1));
+		expect(OFFSETS).toEqual([...Array(128 + 17)].map((_, i) => i));
 	});
 
 	test("spacing", () => {
-		expect(SPACING).toEqual([...Array(128)].map((_, i) => i + 1));
+		expect(SPACING).toEqual([...Array(128 + 1)].map((_, i) => i));
 	});
 });
