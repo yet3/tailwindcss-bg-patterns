@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Pattern, { type IPattern, type IPatternConfig } from '$common/Pattern.svelte';
+	import Footer from '$modules/Footer.svelte';
 	import Header from '$modules/Header.svelte';
 	import githubCodeStyle from 'svelte-highlight/styles/github-dark';
 
@@ -110,3 +111,5 @@
 		{/each}
 	</ol>
 </main>
+
+<Footer />
