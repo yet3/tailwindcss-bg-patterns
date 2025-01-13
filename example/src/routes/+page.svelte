@@ -79,7 +79,7 @@
 <Header />
 
 <main class="px-4">
-	<section class=" mx-auto" aria-label="All patterns">
+	<section class="mb-12 mx-auto" aria-label="All patterns">
 		<h2 class="font-medium text-2xl text-center mb-2">Available patterns</h2>
 		<ol class="flex flex-wrap justify-center px-2">
 			{#each PATTERNS as pattern}
