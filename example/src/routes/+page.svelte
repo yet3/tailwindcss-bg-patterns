@@ -4,34 +4,46 @@
 	import githubCodeStyle from 'svelte-highlight/styles/github-dark';
 
 	const LINE_CONFIGS: IPatternConfig[] = [
-		{ name: 'bg-pattern-line-2', description: 'Configure width of pattern lines' },
 		{
-			name: 'bg-pattern-line-[48]',
-			description: 'Configure width of pattern lines (custom value, without unit)'
-		},
-		{ name: 'bg-pattern-line-red-500', description: 'Configure color of pattern lines' },
+			name: 'bg-pattern-line',
+			options: [
+				{ name: '-2', description: 'Lines width' },
+				{ name: '-[321]', description: 'Custom lines width (in px without unit)' },
+				{ name: '-red-500', description: 'Lines colors' },
+				{ name: '-[#a8a8a8]', description: 'Custom lines color' }
+			]
+		}
+	];
+
+	const DOT_CONFIGS: IPatternConfig[] = [
 		{
-			name: 'bg-pattern-line-[#a8a8a8]',
-			description: 'Configure color of pattern lines (custom value)'
+			name: 'bg-pattern-dot',
+			options: [
+				{ name: '-2', description: 'Dots width' },
+				{ name: '-[321]', description: 'Custom dots width (in px without unit)' },
+				{ name: '-red-500', description: 'Dots colors' },
+				{ name: '-[#a8a8a8]', description: 'Custom dots color' }
+			]
 		}
 	];
 
 	const SPACING_CONFIGS: IPatternConfig[] = [
-		{ name: 'bg-pattern-spacing-48', description: 'Configure the spacing between lines' },
 		{
-			name: 'bg-pattern-spacing-[225]',
-			description: 'Configure the spacing between lines (custom value, without unit)'
+			name: 'bg-pattern-spacing',
+			options: [
+				{ name: '-2', description: 'Spacing' },
+				{ name: '-[321]', description: 'Custom spacing (in px without unit)' }
+			]
 		}
 	];
 
 	const HATCHING_DIRECTION_CONFIGS: IPatternConfig[] = [
 		{
-			name: 'bg-pattern-hatching-left-to-right',
-			description: 'Configure hatching to start from top left'
-		},
-		{
-			name: 'bg-pattern-hatching-right-to-left',
-			description: 'Configure hatching to start from top right'
+			name: 'bg-pattern-hatching',
+			options: [
+				{ name: '-left-to-right', description: 'Start hatching from top left' },
+				{ name: '-right-to-left', description: 'Start hatching from top right' }
+			]
 		}
 	];
 
@@ -58,14 +70,14 @@
 		{
 			id: 'polka-dot',
 			name: 'Polka dot',
-			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
+			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS],
 			class:
 				'bg-blue-500 bg-pattern-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-16'
 		},
 		{
 			id: 'hexagonal-polka-dot',
 			name: 'Hexagonal polka dot',
-			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
+			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS],
 			class:
 				'bg-blue-500 bg-pattern-hex-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-16'
 		}
