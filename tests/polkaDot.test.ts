@@ -8,7 +8,7 @@ describe("polka dot patterns", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-polka-dot`),
 			css`.${DEFAULT_OPTS.prefix}pattern-polka-dot {
         --tw-dot-size: 8;
-        --tw-spacing: 24;
+        --tw-spacing: 32;
         --tw-offset-x: 0px;
         --tw-offset-y: 0px;
         --tw-dot-color: #ffffff;
@@ -27,7 +27,7 @@ describe("polka dot patterns", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-hex-polka-dot`),
 			css`.${DEFAULT_OPTS.prefix}pattern-hex-polka-dot {
         --tw-dot-size: 8;
-        --tw-spacing: 24;
+        --tw-spacing: 32;
         --tw-offset-x: 0px;
         --tw-offset-y: 0px;
         --tw-dot-color: #ffffff;

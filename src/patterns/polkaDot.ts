@@ -17,7 +17,7 @@ export const generatePolkaDotClass = (
 ): CSSRuleObject => {
 	const opts: IOpts = {
 		dotSize: 8,
-		spacing: 24,
+		spacing: 32,
 		offsetX: 0,
 		offsetY: 0,
 		isHexagonal: false,
