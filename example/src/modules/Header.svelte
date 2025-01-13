@@ -24,8 +24,8 @@
 		</li>
 		<li>
 			<Anchor
-				href="https://github.com/yet3/tailwindcss-bg-patterns"
-				ariaLabel="Github (opens in a new tab)"
+				href="https://www.maxkasperowicz.com/"
+				ariaLabel="My portfolio (opens in a new tab)"
 				class="flex items-center"
 			>
 				<Icon className="mr-1 fill-white" src={TrFillBriefcase2} size={24} />
