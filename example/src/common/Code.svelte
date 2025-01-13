@@ -1,16 +1,18 @@
-<script lang="ts">
-	import { onDestroy } from 'svelte';
-	import Highlight from 'svelte-highlight';
-	import type { LanguageType } from 'svelte-highlight/languages';
-	import { Icon } from 'svelte-icons-pack';
-	import { FaCopy } from 'svelte-icons-pack/fa';
-
+<script lang="ts" module>
 	export interface ICodeBaseProps {
 		class?: string;
 		code: string;
 
 		noStyle?: boolean;
 	}
+</script>
+
+<script lang="ts">
+	import { onDestroy } from 'svelte';
+	import Highlight from 'svelte-highlight';
+	import type { LanguageType } from 'svelte-highlight/languages';
+	import { Icon } from 'svelte-icons-pack';
+	import { FaCopy } from 'svelte-icons-pack/fa';
 
 	interface IProps extends ICodeBaseProps {
 		language: LanguageType<string>;
