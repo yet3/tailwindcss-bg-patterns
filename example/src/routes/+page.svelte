@@ -37,20 +37,37 @@
 
 	const PATTERNS: IPattern[] = [
 		{
+			id: 'grid',
 			name: 'Grid',
 			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
 			class: 'bg-blue-500 bg-pattern-grid bg-pattern-line-0.5 bg-pattern-spacing-32'
 		},
 		{
+			id: 'hatching',
 			name: 'Hatching',
 			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
 			class:
 				'bg-blue-500 bg-pattern-hatching bg-pattern-line-0.5 bg-pattern-spacing-16 bg-pattern-hatching-left-to-right'
 		},
 		{
+			id: 'cross-hatching',
 			name: 'Cross-Hatching',
 			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
 			class: 'bg-blue-500 bg-pattern-cross-hatching bg-pattern-line-0.5 bg-pattern-spacing-16'
+		},
+		{
+			id: 'polka-dot',
+			name: 'Polka dot',
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
+			class:
+				'bg-blue-500 bg-pattern-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-16'
+		},
+		{
+			id: 'hexagonal-polka-dot',
+			name: 'Hexagonal polka dot',
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
+			class:
+				'bg-blue-500 bg-pattern-hex-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-16'
 		}
 	];
 </script>
@@ -62,6 +79,17 @@
 <Header />
 
 <main class="px-4">
+	<section class=" mx-auto" aria-label="All patterns">
+		<h2 class="font-medium text-2xl text-center mb-2">Available patterns</h2>
+		<ol class="flex flex-wrap justify-center px-2">
+			{#each PATTERNS as pattern}
+				<li class="text-blue-300 underline px-2 my-1">
+					<a href={`#${pattern.id}`}>{pattern.name}</a>
+				</li>
+			{/each}
+		</ol>
+	</section>
+
 	<ol class="grid content-start pb-64">
 		{#each PATTERNS as pattern}
 			<li class="border-b border-white/75 last-of-type:border-transparent py-6">

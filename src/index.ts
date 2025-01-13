@@ -1,5 +1,5 @@
 import plugin from "tailwindcss/plugin";
-import { LINE_WIDTHS, OFFSETS, SPACING } from "./consts";
+import { DOT_SIZES, LINE_WIDTHS, OFFSETS, SPACING } from "./consts";
 import { arrToTwConfig } from "./lib/arrToTwConfig";
 import {
 	generateLineColors,
@@ -14,7 +14,9 @@ import {
 	generateHatchingClass,
 	genreateHatchingDirection,
 } from "./patterns/hatching";
+import { generatePolkaDotClass } from "./patterns/polkaDot";
 import type { IOptions } from "./types";
+import { generateDotColors, generateDotSize, matchDotSizeAndColors } from "./lib/dot";
 
 export default plugin.withOptions<IOptions | undefined>(
 	(options) => (api) => {
@@ -29,23 +31,32 @@ export default plugin.withOptions<IOptions | undefined>(
 				isCrossHatch: true,
 			}),
 
+			generatePolkaDotClass(e(`${opts.prefix}pattern-polka-dot`)),
+			generatePolkaDotClass(e(`${opts.prefix}pattern-hex-polka-dot`), {
+				isHexagonal: true,
+			}),
+
 			// Configs
 			generateLineWidths(api, opts),
+			generateLineColors(api, opts),
+			generateDotSize(api, opts),
+			generateDotColors(api, opts),
 			generateSpacing(api, opts),
 			genreateHatchingDirection(api, opts),
-			generateLineColors(api, opts),
 			generateOffsets(api, opts),
 		]);
 
 		matchUtilities({
 			...matchSpacing(api, opts),
 			...matchLineWidthsAndColors(api, opts),
+			...matchDotSizeAndColors(api, opts),
 			...matchOffsets(api, opts),
 		});
 	},
 	() => ({
 		theme: {
 			bgPatternLineWidth: arrToTwConfig(LINE_WIDTHS),
+			bgPatternDotSize: arrToTwConfig(DOT_SIZES),
 			bgPatternSpacing: arrToTwConfig(SPACING),
 			bgPatternOffsets: arrToTwConfig(OFFSETS, "px"),
 		},

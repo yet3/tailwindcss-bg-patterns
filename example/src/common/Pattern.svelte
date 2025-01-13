@@ -6,6 +6,7 @@
 		description: string;
 	}
 	export interface IPattern {
+		id: string;
 		name: string;
 		class: string;
 		configClasses: IPatternConfig[];
@@ -16,10 +17,14 @@
 	}
 
 	const { data }: IProps = $props();
-	const { name, configClasses, class: className } = data;
+	const { id, name, configClasses, class: className } = data;
 </script>
 
-<section class="grid lg:grid-cols-[2fr_minmax(400px,1fr)] gap-x-8 gap-y-4">
+<section
+	{id}
+	aria-label={`Pattern: ${name}`}
+	class="grid lg:grid-cols-[2fr_minmax(400px,1fr)] gap-x-8 gap-y-4"
+>
 	<article class="flex flex-col justify-center">
 		<h2 class="mb-4 text-3xl font-medium">{name}</h2>
 
