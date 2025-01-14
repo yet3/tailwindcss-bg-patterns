@@ -5,6 +5,7 @@ import {
 	LINE_WIDTHS,
 	OFFSETS,
 	SPACING,
+  SQUARE_SIZES,
 } from "../src/consts";
 import { css, expectCssToBe, generateTwCss } from "./utils";
 
@@ -50,6 +51,31 @@ describe("dot sizes", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-dot-[321]`),
 			css`.${DEFAULT_OPTS.prefix}pattern-dot-[321] {
           --tw-dot-size: 321 /* px */
+        }`,
+		);
+	});
+});
+
+describe("square sizes", () => {
+	test(`square sizes ${SQUARE_SIZES[0]}-${SQUARE_SIZES[SQUARE_SIZES.length - 1]}`, async () => {
+		const expected: string[] = [];
+		const classes: string[] = [];
+		for (const value of SQUARE_SIZES) {
+			classes.push(`${DEFAULT_OPTS.prefix}pattern-square-${value}`);
+			expected.push(
+				css`.${DEFAULT_OPTS.prefix}pattern-square-${value} {
+            --tw-square-size: ${value} /* px */
+        }`,
+			);
+		}
+		expectCssToBe(await generateTwCss(classes.join(" ")), expected.join(""));
+	});
+
+	test("custom square size", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-square-[321]`),
+			css`.${DEFAULT_OPTS.prefix}pattern-square-[321] {
+          --tw-square-size: 321 /* px */
         }`,
 		);
 	});
@@ -170,6 +196,35 @@ describe("dot colors", () => {
 			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-dot-white`),
 			css`.${DEFAULT_OPTS.prefix}pattern-dot-white {
         --tw-dot-color: #fff
+    }`,
+		);
+	});
+});
+
+describe("square colors", () => {
+	test("custom color", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-square-[#f8f8f8]`),
+			css`.${DEFAULT_OPTS.prefix}pattern-square-[#f8f8f8] {
+        --tw-square-color: #f8f8f8
+    }`,
+		);
+	});
+
+	test("color with variant", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-square-red-300`),
+			css`.${DEFAULT_OPTS.prefix}pattern-square-red-300 {
+        --tw-square-color: #fca5a5
+    }`,
+		);
+	});
+
+	test("color without variant", async () => {
+		expectCssToBe(
+			await generateTwCss(`${DEFAULT_OPTS.prefix}pattern-square-white`),
+			css`.${DEFAULT_OPTS.prefix}pattern-square-white {
+        --tw-square-color: #fff
     }`,
 		);
 	});
