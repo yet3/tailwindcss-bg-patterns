@@ -1,6 +1,6 @@
 import { describe, test } from "vitest";
-import { DEFAULT_OPTS } from "../src/consts";
-import { css, expectCssToBe, generateTwCss } from "./utils";
+import { DEFAULT_OPTS } from "../../src/consts";
+import { css, expectCssToBe, generateTwCss } from "../utils";
 
 describe("polka dot patterns", () => {
 	test("polka dot pattern", async () => {
