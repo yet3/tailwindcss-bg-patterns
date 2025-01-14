@@ -16,6 +16,7 @@ See a [live demo](https://yet3.github.io/tailwindcss-bg-patterns/)
 - [Installation](#installation)
 - [Config](#config)
 - [Example usage](#grid)
+- [Pattern offsets](#pattern-offsets)
 - [Patterns](#patterns)
   - [Horizontal lines](#horizontal-lines)
   - [Vertical lines](#vertical-lines)
@@ -80,7 +81,13 @@ this code will result in:
 
 <img src="./public/grid.png" alt="Grid pattern" height="200" />
 
+## Pattern offsets
+Each pattern can be offset using ``bg-pattern-offset-x`` and ``bg-pattern-offset-y``
+
+Offset also accept arbritary values ``bg-pattern-offset-x-[321px]`` as well as negative values ``-bg-pattern-offset-y-24``
+
 ## Patterns
+
 
 ### Horizontal lines
 
