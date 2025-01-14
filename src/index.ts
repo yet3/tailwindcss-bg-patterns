@@ -41,10 +41,10 @@ export default plugin.withOptions<IOptions | undefined>(
 				isHexagonal: true,
 			}),
 
-			generateLinesClass(`${opts.prefix}pattern-x-lines`, {
+			generateLinesClass(e(`${opts.prefix}pattern-x-lines`), {
 				angle: 0,
 			}),
-			generateLinesClass(`${opts.prefix}pattern-y-lines`, {
+			generateLinesClass(e(`${opts.prefix}pattern-y-lines`), {
 				angle: 90,
 			}),
 
