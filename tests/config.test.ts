@@ -5,7 +5,7 @@ import {
 	LINE_WIDTHS,
 	OFFSETS,
 	SPACING,
-  SQUARE_SIZES,
+	SQUARE_SIZES,
 } from "../src/consts";
 import { css, expectCssToBe, generateTwCss } from "./utils";
 
@@ -112,7 +112,7 @@ describe("offsets", () => {
 		const classes: string[] = [];
 		for (const offset of OFFSETS) {
 			classes.push(
-				`${DEFAULT_OPTS.prefix}pattern-offset-x-${offset} ${DEFAULT_OPTS.prefix}pattern-offset-y-${offset}`,
+				`${DEFAULT_OPTS.prefix}pattern-offset-x-${offset} ${DEFAULT_OPTS.prefix}pattern-offset-y-${offset} -${DEFAULT_OPTS.prefix}pattern-offset-x-${offset} -${DEFAULT_OPTS.prefix}pattern-offset-y-${offset} `,
 			);
 			expected.push(
 				css`.${DEFAULT_OPTS.prefix}pattern-offset-x-${offset} {
@@ -120,6 +120,12 @@ describe("offsets", () => {
 		     }
 		     .${DEFAULT_OPTS.prefix}pattern-offset-y-${offset} {
 		         --tw-offset-y: ${offset}px
+		     }
+        .-${DEFAULT_OPTS.prefix}pattern-offset-x-${offset} {
+		         --tw-offset-x: -${offset}px
+		     }
+        .-${DEFAULT_OPTS.prefix}pattern-offset-y-${offset} {
+		         --tw-offset-y: -${offset}px
 		     }`,
 			);
 		}
@@ -136,8 +142,7 @@ describe("offsets", () => {
         }
         .${DEFAULT_OPTS.prefix}pattern-offset-y-[321px] {
           --tw-offset-y: 321px
-        }
-      `,
+        }`,
 		);
 	});
 });
@@ -170,7 +175,6 @@ describe("line colors", () => {
 		);
 	});
 });
-
 
 describe("dot colors", () => {
 	test("custom color", async () => {

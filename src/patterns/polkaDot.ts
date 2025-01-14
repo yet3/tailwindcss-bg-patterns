@@ -52,8 +52,8 @@ export const generatePolkaDotClass = (
 		[`.${className}`]: {
 			"--tw-dot-size": opts.dotSize.toString(),
 			"--tw-spacing": opts.spacing.toString(),
-			"--tw-offset-x": `${opts.offsetX * -1}px`,
-			"--tw-offset-y": `${opts.offsetY * -1}px`,
+			"--tw-offset-x": `${opts.offsetX}px`,
+			"--tw-offset-y": `${opts.offsetY}px`,
 			"--tw-dot-color": opts.dotColor,
 
 			...varsCode,

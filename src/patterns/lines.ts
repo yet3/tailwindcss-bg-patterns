@@ -29,8 +29,8 @@ export const generateLinesClass = (
 		[`.${className}`]: {
 			"--tw-line-size": opts.lineSize.toString(),
 			"--tw-spacing": opts.spacing.toString(),
-			"--tw-offset-x": `${opts.offsetX * -1}px`,
-			"--tw-offset-y": `${opts.offsetY * -1}px`,
+			"--tw-offset-x": `${opts.offsetX}px`,
+			"--tw-offset-y": `${opts.offsetY}px`,
 			"--tw-line-color": opts.lineColor,
 
 			"--tw-unit": "calc(var(--tw-line-size) + var(--tw-spacing))",
