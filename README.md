@@ -20,6 +20,7 @@ See a [live demo](https://yet3.github.io/tailwindcss-bg-patterns/)
   - [Horizontal lines](#horizontal-lines)
   - [Vertical lines](#vertical-lines)
   - [Grid](#grid)
+  - [Checkers](#checkers)
   - [Hatching](#hatching)
   - [Cross-Hatching](#cross-hatching)
   - [Polka dot](#polka-dot)
@@ -117,6 +118,18 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#grid)
 
 <img src="./public/grid.png" alt="Grid pattern" height="200" />
 
+### Checkers
+
+See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#checkers)
+
+```html
+<div
+  class="bg-blue-500 bg-pattern-checkers bg-pattern-square-white bg-pattern-square-32"
+/>
+```
+
+<img src="./public/checkers.png" alt="Checkers pattern" height="200" />
+
 ### Hatching
 
 See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#hatching)
@@ -168,7 +181,6 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#hexagonal-polk
 ## Todo
 
 - [ ] Add utility to adjust pattern opacity
-- [ ] Add pattern: checkers
 - [ ] Add pattern: honeycomb
 - [ ] Add pattern: bricks
 
