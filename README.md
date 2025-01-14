@@ -17,6 +17,8 @@ See a [live demo](https://yet3.github.io/tailwindcss-bg-patterns/)
 - [Config](#config)
 - [Example usage](#grid)
 - [Patterns](#patterns)
+  - [Horizontal lines](#horizontal-lines)
+  - [Vertical lines](#vertical-lines)
   - [Grid](#grid)
   - [Hatching](#hatching)
   - [Cross-Hatching](#cross-hatching)
@@ -79,7 +81,32 @@ this code will result in:
 
 ## Patterns
 
+### Horizontal lines
+
+See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#x-lines)
+
+```html
+<div
+  class="bg-blue-500 bg-pattern-x-lines bg-pattern-line-0.5 bg-pattern-spacing-32"
+/>
+```
+
+<img src="./public/x-lines.png" alt="Horizontal lines" height="200" />
+
+### Vertical lines
+
+See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#y-lines)
+
+```html
+<div
+  class="bg-blue-500 bg-pattern-y-lines bg-pattern-line-0.5 bg-pattern-spacing-32"
+/>
+```
+
+<img src="./public/y-lines.png" alt="Vertical lines" height="200" />
+
 ### Grid
+
 See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#grid)
 
 ```html
@@ -91,6 +118,7 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#grid)
 <img src="./public/grid.png" alt="Grid pattern" height="200" />
 
 ### Hatching
+
 See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#hatching)
 
 ```html
@@ -102,6 +130,7 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#hatching)
 <img src="./public/hatching.png" alt="Hatching pattern" height="200" />
 
 ### Cross-Hatching
+
 See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#cross-hatching)
 
 ```html
@@ -113,6 +142,7 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#cross-hatching
 <img src="./public/cross-hatching.png" alt="Cross-Hatching pattern" height="200" />
 
 ### Polka dot
+
 See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#polka-dot)
 
 ```html
@@ -124,6 +154,7 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#polka-dot)
 <img src="./public/polka-dot.png" alt="Polka dot pattern" height="200" />
 
 ### Hexagonal polka dot
+
 See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#hexagonal-polka-dot)
 
 ```html
@@ -137,8 +168,6 @@ See it live [here](https://yet3.github.io/tailwindcss-bg-patterns#hexagonal-polk
 ## Todo
 
 - [ ] Add utility to adjust pattern opacity
-- [ ] Add pattern: horizontal-lines (x-lines?)
-- [ ] Add pattern: vertical-lines (y-lines?)
 - [ ] Add pattern: checkers
 - [ ] Add pattern: honeycomb
 - [ ] Add pattern: bricks
