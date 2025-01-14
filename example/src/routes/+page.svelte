@@ -28,6 +28,18 @@
 		}
 	];
 
+	const SQUARE_CONFIGS: IPatternConfig[] = [
+		{
+			name: 'bg-pattern-square',
+			options: [
+				{ name: '-2', description: 'Squares width' },
+				{ name: '-[321]', description: 'Custom squares width (in px without unit)' },
+				{ name: '-red-500', description: 'Squares colors' },
+				{ name: '-[#a8a8a8]', description: 'Custom squares color' }
+			]
+		}
+	];
+
 	const SPACING_CONFIGS: IPatternConfig[] = [
 		{
 			name: 'bg-pattern-spacing',
@@ -66,6 +78,12 @@
 			name: 'Grid',
 			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
 			class: 'bg-blue-500 bg-pattern-grid bg-pattern-line-0.5 bg-pattern-spacing-32'
+		},
+		{
+			id: 'checkers',
+			name: 'Checkers',
+			configClasses: SQUARE_CONFIGS,
+			class: 'bg-blue-500 bg-pattern-checkers bg-pattern-square-white bg-pattern-square-32'
 		},
 		{
 			id: 'hatching',
