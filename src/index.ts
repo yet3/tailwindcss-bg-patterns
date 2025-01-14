@@ -2,6 +2,11 @@ import plugin from "tailwindcss/plugin";
 import { DOT_SIZES, LINE_WIDTHS, OFFSETS, SPACING } from "./consts";
 import { arrToTwConfig } from "./lib/arrToTwConfig";
 import {
+	generateDotColors,
+	generateDotSize,
+	matchDotSizeAndColors,
+} from "./lib/dot";
+import {
 	generateLineColors,
 	generateLineWidths,
 	matchLineWidthsAndColors,
@@ -14,11 +19,9 @@ import {
 	generateHatchingClass,
 	genreateHatchingDirection,
 } from "./patterns/hatching";
+import { generateLinesClass } from "./patterns/lines";
 import { generatePolkaDotClass } from "./patterns/polkaDot";
 import type { IOptions } from "./types";
-import { generateDotColors, generateDotSize, matchDotSizeAndColors } from "./lib/dot";
-import { generateHorizontalLinesClass } from "./patterns/horizontalLines";
-import { generateVerticalLinesClass } from "./patterns/verticalLines";
 
 export default plugin.withOptions<IOptions | undefined>(
 	(options) => (api) => {
@@ -38,8 +41,12 @@ export default plugin.withOptions<IOptions | undefined>(
 				isHexagonal: true,
 			}),
 
-      generateHorizontalLinesClass(`${opts.prefix}pattern-x-lines`),
-      generateVerticalLinesClass(`${opts.prefix}pattern-y-lines`),
+			generateLinesClass(`${opts.prefix}pattern-x-lines`, {
+				angle: 0,
+			}),
+			generateLinesClass(`${opts.prefix}pattern-y-lines`, {
+				angle: 90,
+			}),
 
 			// Configs
 			generateLineWidths(api, opts),

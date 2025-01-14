@@ -7,18 +7,24 @@ interface IOpts {
 	offsetY: number;
 
 	lineColor: string;
+
+	angle: number;
 }
 
-export const generateHorizontalLinesClass = (
+export const generateLinesClass = (
 	className: string,
-	opts: IOpts = {
+	_opts?: Partial<IOpts>,
+): CSSRuleObject => {
+	const opts: IOpts = {
+		angle: 0,
 		lineColor: "#ffffff",
 		lineSize: 1,
 		spacing: 24,
 		offsetX: 0,
 		offsetY: 0,
-	},
-): CSSRuleObject => {
+		..._opts,
+	};
+
 	return {
 		[`.${className}`]: {
 			"--tw-line-size": opts.lineSize.toString(),
@@ -33,7 +39,7 @@ export const generateHorizontalLinesClass = (
 			"--tw-line-start-stop": "calc(50% - var(--tw-line-stop))",
 			"--tw-line-end-stop": "calc(50% + var(--tw-line-stop))",
 			backgroundImage: `linear-gradient(
-          0deg,
+          ${opts.angle}deg,
           transparent var(--tw-line-start-stop),
           var(--tw-line-color) var(--tw-line-start-stop),
           var(--tw-line-color) var(--tw-line-end-stop),
