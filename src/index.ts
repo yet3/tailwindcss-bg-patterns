@@ -1,6 +1,11 @@
 import plugin from "tailwindcss/plugin";
-import { DOT_SIZES, LINE_WIDTHS, OFFSETS, SPACING } from "./consts";
+import { DOT_SIZES, LINE_WIDTHS, OFFSETS, SPACING, SQUARE_SIZES } from "./consts";
 import { arrToTwConfig } from "./lib/arrToTwConfig";
+import {
+	generateDotColors,
+	generateDotSize,
+	matchDotSizeAndColors,
+} from "./lib/dot";
 import {
 	generateLineColors,
 	generateLineWidths,
@@ -9,14 +14,16 @@ import {
 import { generateOffsets, matchOffsets } from "./lib/offsets";
 import { resolveOptions } from "./lib/resolveOptions";
 import { generateSpacing, matchSpacing } from "./lib/spacing";
+import { generateCheckersClass } from "./patterns/checkers";
 import { generateGridClass } from "./patterns/grid";
 import {
 	generateHatchingClass,
 	genreateHatchingDirection,
 } from "./patterns/hatching";
+import { generateLinesClass } from "./patterns/lines";
 import { generatePolkaDotClass } from "./patterns/polkaDot";
 import type { IOptions } from "./types";
-import { generateDotColors, generateDotSize, matchDotSizeAndColors } from "./lib/dot";
+import { generateSquareColors, generateSuqareSize, matchSquareSizeAndColors } from "./lib/square";
 
 export default plugin.withOptions<IOptions | undefined>(
 	(options) => (api) => {
@@ -36,11 +43,22 @@ export default plugin.withOptions<IOptions | undefined>(
 				isHexagonal: true,
 			}),
 
+			generateLinesClass(e(`${opts.prefix}pattern-x-lines`), {
+				angle: 0,
+			}),
+			generateLinesClass(e(`${opts.prefix}pattern-y-lines`), {
+				angle: 90,
+			}),
+
+			generateCheckersClass(e(`${opts.prefix}pattern-checkers`)),
+
 			// Configs
 			generateLineWidths(api, opts),
 			generateLineColors(api, opts),
 			generateDotSize(api, opts),
 			generateDotColors(api, opts),
+			generateSuqareSize(api, opts),
+			generateSquareColors(api, opts),
 			generateSpacing(api, opts),
 			genreateHatchingDirection(api, opts),
 			generateOffsets(api, opts),
@@ -50,6 +68,7 @@ export default plugin.withOptions<IOptions | undefined>(
 			...matchSpacing(api, opts),
 			...matchLineWidthsAndColors(api, opts),
 			...matchDotSizeAndColors(api, opts),
+			...matchSquareSizeAndColors(api, opts),
 			...matchOffsets(api, opts),
 		});
 	},
@@ -57,6 +76,7 @@ export default plugin.withOptions<IOptions | undefined>(
 		theme: {
 			bgPatternLineWidth: arrToTwConfig(LINE_WIDTHS),
 			bgPatternDotSize: arrToTwConfig(DOT_SIZES),
+			bgPatternSquareSize: arrToTwConfig(SQUARE_SIZES),
 			bgPatternSpacing: arrToTwConfig(SPACING),
 			bgPatternOffsets: arrToTwConfig(OFFSETS, "px"),
 		},

@@ -16,6 +16,13 @@ export const generateOffsets = (
 			styles[`.${api.e(`${opts.prefix}pattern-offset-y-${key}`)}`] = {
 				"--tw-offset-y": offset,
 			} as unknown as CSSRuleObject;
+
+			styles[`.${api.e(`-${opts.prefix}pattern-offset-x-${key}`)}`] = {
+				"--tw-offset-x": `-${offset}`,
+			} as unknown as CSSRuleObject;
+			styles[`.${api.e(`-${opts.prefix}pattern-offset-y-${key}`)}`] = {
+				"--tw-offset-y": `-${offset}`,
+			} as unknown as CSSRuleObject;
 		}
 	}
 	return styles as CSSRuleObject;

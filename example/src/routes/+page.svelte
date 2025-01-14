@@ -16,6 +16,23 @@
 		}
 	];
 
+	const OFFSETS_CONFIGS: IPatternConfig[] = [
+		{
+			name: 'bg-pattern-offset-x',
+			options: [
+				{ name: '-2', description: 'Offset x' },
+				{ name: '-[321px]', description: 'Custom offset x' }
+			]
+		},
+		{
+			name: 'bg-pattern-offset-y',
+			options: [
+				{ name: '-2', description: 'Offset x' },
+				{ name: '-[321px]', description: 'Custom offset x' }
+			]
+		}
+	];
+
 	const DOT_CONFIGS: IPatternConfig[] = [
 		{
 			name: 'bg-pattern-dot',
@@ -24,6 +41,18 @@
 				{ name: '-[321]', description: 'Custom dots width (in px without unit)' },
 				{ name: '-red-500', description: 'Dots colors' },
 				{ name: '-[#a8a8a8]', description: 'Custom dots color' }
+			]
+		}
+	];
+
+	const SQUARE_CONFIGS: IPatternConfig[] = [
+		{
+			name: 'bg-pattern-square',
+			options: [
+				{ name: '-2', description: 'Squares width' },
+				{ name: '-[321]', description: 'Custom squares width (in px without unit)' },
+				{ name: '-red-500', description: 'Squares colors' },
+				{ name: '-[#a8a8a8]', description: 'Custom squares color' }
 			]
 		}
 	];
@@ -50,35 +79,53 @@
 
 	const PATTERNS: IPattern[] = [
 		{
+			id: 'x-lines',
+			name: 'Horizontal lines',
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...OFFSETS_CONFIGS],
+			class: 'bg-blue-500 bg-pattern-x-lines bg-pattern-line-0.5 bg-pattern-spacing-20'
+		},
+		{
+			id: 'y-lines',
+			name: 'Vertical lines',
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...OFFSETS_CONFIGS],
+			class: 'bg-blue-500 bg-pattern-y-lines bg-pattern-line-0.5 bg-pattern-spacing-32'
+		},
+		{
 			id: 'grid',
 			name: 'Grid',
-			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...OFFSETS_CONFIGS],
 			class: 'bg-blue-500 bg-pattern-grid bg-pattern-line-0.5 bg-pattern-spacing-32'
+		},
+		{
+			id: 'checkers',
+			name: 'Checkers',
+			configClasses: [...SQUARE_CONFIGS, ...OFFSETS_CONFIGS],
+			class: 'bg-blue-500 bg-pattern-checkers bg-pattern-square-white bg-pattern-square-32'
 		},
 		{
 			id: 'hatching',
 			name: 'Hatching',
-			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS, ...OFFSETS_CONFIGS],
 			class:
 				'bg-blue-500 bg-pattern-hatching bg-pattern-line-0.5 bg-pattern-spacing-16 bg-pattern-hatching-left-to-right'
 		},
 		{
 			id: 'cross-hatching',
 			name: 'Cross-Hatching',
-			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS],
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS, ...HATCHING_DIRECTION_CONFIGS, ...OFFSETS_CONFIGS],
 			class: 'bg-blue-500 bg-pattern-cross-hatching bg-pattern-line-0.5 bg-pattern-spacing-16'
 		},
 		{
 			id: 'polka-dot',
 			name: 'Polka dot',
-			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS],
+			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS, ...OFFSETS_CONFIGS],
 			class:
 				'bg-blue-500 bg-pattern-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-32'
 		},
 		{
 			id: 'hexagonal-polka-dot',
 			name: 'Hexagonal polka dot',
-			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS],
+			configClasses: [...DOT_CONFIGS, ...SPACING_CONFIGS, ...OFFSETS_CONFIGS],
 			class:
 				'bg-blue-500 bg-pattern-hex-polka-dot bg-pattern-dot-white bg-pattern-dot-8 bg-pattern-spacing-32'
 		}

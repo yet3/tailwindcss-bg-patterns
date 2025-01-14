@@ -5,6 +5,7 @@ import {
 	LINE_WIDTHS,
 	OFFSETS,
 	SPACING,
+  SQUARE_SIZES,
 } from "../src/consts";
 
 describe("default production values", () => {
@@ -21,6 +22,10 @@ describe("default production values", () => {
 
 	test("dot sizes", () => {
 		expect(DOT_SIZES).toEqual([...Array(96)].map((_, i) => i + 1));
+	});
+
+	test("square sizes", () => {
+		expect(SQUARE_SIZES).toEqual([...Array(96)].map((_, i) => i + 1));
 	});
 
 	test("offsets", () => {

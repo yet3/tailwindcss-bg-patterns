@@ -67,8 +67,8 @@ export const generateHatchingClass = (
 		[`.${className}`]: {
 			"--tw-line-size": opts.lineSize.toString(),
 			"--tw-spacing": opts.spacing.toString(),
-			"--tw-offset-x": `${opts.offsetX * -1}px`,
-			"--tw-offset-y": `${opts.offsetY * -1}px`,
+			"--tw-offset-x": `${opts.offsetX}px`,
+			"--tw-offset-y": `${opts.offsetY}px`,
 			"--tw-hatching-angle": `${opts.isRightLeaning ? -45 : 45}deg`,
 			"--tw-line-color": opts.lineColor,
 
