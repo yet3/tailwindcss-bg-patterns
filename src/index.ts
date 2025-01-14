@@ -17,6 +17,8 @@ import {
 import { generatePolkaDotClass } from "./patterns/polkaDot";
 import type { IOptions } from "./types";
 import { generateDotColors, generateDotSize, matchDotSizeAndColors } from "./lib/dot";
+import { generateHorizontalLinesClass } from "./patterns/horizontalLines";
+import { generateVerticalLinesClass } from "./patterns/verticalLines";
 
 export default plugin.withOptions<IOptions | undefined>(
 	(options) => (api) => {
@@ -35,6 +37,9 @@ export default plugin.withOptions<IOptions | undefined>(
 			generatePolkaDotClass(e(`${opts.prefix}pattern-hex-polka-dot`), {
 				isHexagonal: true,
 			}),
+
+      generateHorizontalLinesClass(`${opts.prefix}pattern-x-lines`),
+      generateVerticalLinesClass(`${opts.prefix}pattern-y-lines`),
 
 			// Configs
 			generateLineWidths(api, opts),

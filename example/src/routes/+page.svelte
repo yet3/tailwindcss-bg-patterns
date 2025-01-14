@@ -50,6 +50,18 @@
 
 	const PATTERNS: IPattern[] = [
 		{
+			id: 'x-lines',
+			name: 'Horizontal lines',
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
+			class: 'bg-blue-500 bg-pattern-x-lines bg-pattern-line-0.5 bg-pattern-spacing-20'
+		},
+		{
+			id: 'y-lines',
+			name: 'Vertical lines',
+			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
+			class: 'bg-blue-500 bg-pattern-y-lines bg-pattern-line-0.5 bg-pattern-spacing-32'
+		},
+		{
 			id: 'grid',
 			name: 'Grid',
 			configClasses: [...LINE_CONFIGS, ...SPACING_CONFIGS],
